@@ -1,6 +1,7 @@
 package org.webmarketapp.webmarket.domain.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.webmarketapp.webmarket.domain.Repository.UserRepository;
 import org.webmarketapp.webmarket.domain.dto.UserRequestDTO;
@@ -15,16 +16,20 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
         User user = new User();
         user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
         user.setBirthDate(dto.getBirthDate());
         user.setPosition(dto.getPosition());
         user.setSalary(dto.getSalary());
         user.setRole(dto.getRole());
 
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         User savedUser = userRepository.save(user);
+
         return convertToResponseDTO(savedUser);
     }
     public List<UserResponseDTO> getAllUsers() {
@@ -55,7 +60,7 @@ public class UserService {
         user.setSalary(dto.getSalary());
 
         if(dto.getPassword() != null && !dto.getPassword().isEmpty()) {
-            // user.setPassword(passwordEncoder.encode(dto.getPassword()));
+             user.setPassword(passwordEncoder.encode(dto.getPassword()));
         }
 
         if(dto.getRole() != null) {

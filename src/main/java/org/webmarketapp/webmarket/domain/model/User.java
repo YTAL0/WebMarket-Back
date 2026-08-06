@@ -34,4 +34,5 @@ public class User {
     private Double salary;
 
     private String role;
+
 }
