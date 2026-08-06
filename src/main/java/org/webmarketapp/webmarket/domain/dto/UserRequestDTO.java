@@ -1,4 +1,4 @@
-package org.webmarketapp.webmarket.dto;
+package org.webmarketapp.webmarket.domain.dto;
 
 import lombok.Data;
 import java.time.LocalDate;
@@ -10,4 +10,6 @@ public class UserRequestDTO {
     private String position;
     private Double salary;
     private String role;
+    private String email;
+    private String password;
 }

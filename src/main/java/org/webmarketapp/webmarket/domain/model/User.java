@@ -1,4 +1,4 @@
-package org.webmarketapp.webmarket.model;
+package org.webmarketapp.webmarket.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,6 +19,12 @@ public class User {
 
     @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;

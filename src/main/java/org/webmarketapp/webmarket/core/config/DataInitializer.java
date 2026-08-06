@@ -1,10 +1,10 @@
-package org.webmarketapp.webmarket.config;
+package org.webmarketapp.webmarket.core.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-import org.webmarketapp.webmarket.Repository.UserRepository;
-import org.webmarketapp.webmarket.model.User;
+import org.webmarketapp.webmarket.domain.Repository.UserRepository;
+import org.webmarketapp.webmarket.domain.model.User;
 
 import java.time.LocalDate;
 
