@@ -3,7 +3,7 @@ package org.webmarketapp.webmarket.domain.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.webmarketapp.webmarket.domain.Repository.UserRepository;
+import org.webmarketapp.webmarket.domain.repository.UserRepository;
 import org.webmarketapp.webmarket.domain.dto.UserRequestDTO;
 import org.webmarketapp.webmarket.domain.dto.UserResponseDTO;
 import org.webmarketapp.webmarket.domain.model.User;
