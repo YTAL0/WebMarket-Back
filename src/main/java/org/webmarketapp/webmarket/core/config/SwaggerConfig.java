@@ -19,7 +19,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("WebMarket Financeiro API")
                         .version("1.0")
-                        .description("Documentação da API de Gestão Financeira"))
+                        .description("Documentação da API do WebMarket"))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()
                         .addSecuritySchemes(securitySchemeName, new SecurityScheme()
