@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.webmarketapp.webmarket.domain.repository.UserRepository;
 import org.webmarketapp.webmarket.domain.model.User;
-
 import java.time.LocalDate;
 
 @Configuration
