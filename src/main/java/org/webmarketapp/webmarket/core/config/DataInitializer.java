@@ -7,7 +7,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.webmarketapp.webmarket.domain.repository.UserRepository;
 import org.webmarketapp.webmarket.domain.model.User;
 import java.time.LocalDate;
-
 @Configuration
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
