@@ -7,7 +7,8 @@ import org.webmarketapp.webmarket.domain.company.dto.CompanyRequestDTO;
 import org.webmarketapp.webmarket.domain.company.dto.CompanyResponseDTO;
 import org.webmarketapp.webmarket.domain.company.model.Company;
 import org.webmarketapp.webmarket.domain.company.repository.CompanyRepository;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,10 +27,9 @@ public class CompanyService {
         return convertToResponseDTO(savedCompany);
     }
 
-    public List<CompanyResponseDTO> getAllCompanies() {
-        return companyRepository.findAll().stream()
-                .map(this::convertToResponseDTO)
-                .collect(Collectors.toList());
+    public Page<CompanyResponseDTO> getAllCompanies(Pageable pageable) {
+        return companyRepository.findAll(pageable)
+                .map(this::convertToResponseDTO);
     }
 
     public CompanyResponseDTO getCompanyById(Long id) {

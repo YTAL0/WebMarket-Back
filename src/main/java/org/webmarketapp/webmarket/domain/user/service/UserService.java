@@ -8,7 +8,8 @@ import org.webmarketapp.webmarket.domain.user.repository.UserRepository;
 import org.webmarketapp.webmarket.domain.user.dto.UserRequestDTO;
 import org.webmarketapp.webmarket.domain.user.dto.UserResponseDTO;
 import org.webmarketapp.webmarket.domain.user.model.User;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,10 +34,9 @@ public class UserService {
 
         return convertToResponseDTO(savedUser);
     }
-    public List<UserResponseDTO> getAllUsers() {
-        return userRepository.findAll().stream()
-                .map(this::convertToResponseDTO)
-                .collect(Collectors.toList());
+    public Page<UserResponseDTO> getAllUsers(Pageable pageable) {
+        return userRepository.findAll(pageable)
+                .map(this::convertToResponseDTO);
     }
 
     private UserResponseDTO convertToResponseDTO(User user) {

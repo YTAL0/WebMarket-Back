@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import org.webmarketapp.webmarket.domain.user.dto.UserRequestDTO;
 import org.webmarketapp.webmarket.domain.user.dto.UserResponseDTO;
 import org.webmarketapp.webmarket.domain.user.service.UserService;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import java.util.List;
 
 @RestController
@@ -26,8 +28,9 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<UserResponseDTO>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<Page<UserResponseDTO>> getAllUsers(
+            @PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
+        return ResponseEntity.ok(userService.getAllUsers(pageable));
     }
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")

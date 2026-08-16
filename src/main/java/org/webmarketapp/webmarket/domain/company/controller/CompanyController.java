@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import org.webmarketapp.webmarket.domain.company.dto.CompanyRequestDTO;
 import org.webmarketapp.webmarket.domain.company.dto.CompanyResponseDTO;
 import org.webmarketapp.webmarket.domain.company.service.CompanyService;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import java.util.List;
 
 @RestController
@@ -26,8 +28,9 @@ public class CompanyController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<CompanyResponseDTO>> getAllCompanies() {
-        return ResponseEntity.ok(companyService.getAllCompanies());
+    public ResponseEntity<Page<CompanyResponseDTO>> getAllCompanies(
+            @PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
+        return ResponseEntity.ok(companyService.getAllCompanies(pageable));
     }
 
     @GetMapping("/{id}")
