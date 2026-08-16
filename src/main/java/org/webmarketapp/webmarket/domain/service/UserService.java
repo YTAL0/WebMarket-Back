@@ -3,6 +3,7 @@ package org.webmarketapp.webmarket.domain.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.webmarketapp.webmarket.core.exception.ResourceNotFoundException;
 import org.webmarketapp.webmarket.domain.repository.UserRepository;
 import org.webmarketapp.webmarket.domain.dto.UserRequestDTO;
 import org.webmarketapp.webmarket.domain.dto.UserResponseDTO;
@@ -51,7 +52,7 @@ public class UserService {
 
     public UserResponseDTO updateUser(Long id, UserRequestDTO dto) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id + " not found."));
 
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
@@ -73,7 +74,7 @@ public class UserService {
 
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id + " not found."));
         userRepository.delete(user);
     }
 }
