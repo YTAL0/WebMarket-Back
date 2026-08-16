@@ -1,4 +1,4 @@
-package org.webmarketapp.webmarket.domain.dto;
+package org.webmarketapp.webmarket.domain.user.dto;
 
 import lombok.Data;
 import java.time.LocalDate;

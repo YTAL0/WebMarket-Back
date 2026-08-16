@@ -1,4 +1,4 @@
-package org.webmarketapp.webmarket.domain.controller;
+package org.webmarketapp.webmarket.domain.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -6,9 +6,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import org.webmarketapp.webmarket.core.security.TokenService;
-import org.webmarketapp.webmarket.domain.dto.AuthRequestDTO;
-import org.webmarketapp.webmarket.domain.dto.AuthResponseDTO;
-import org.webmarketapp.webmarket.domain.model.User;
+import org.webmarketapp.webmarket.domain.user.dto.AuthRequestDTO;
+import org.webmarketapp.webmarket.domain.user.dto.AuthResponseDTO;
+import org.webmarketapp.webmarket.domain.user.model.User;
 
 @RestController
 @RequestMapping("/api/auth")

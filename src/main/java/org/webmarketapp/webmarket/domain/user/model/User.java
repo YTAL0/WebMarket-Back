@@ -1,4 +1,4 @@
-package org.webmarketapp.webmarket.domain.model;
+package org.webmarketapp.webmarket.domain.user.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

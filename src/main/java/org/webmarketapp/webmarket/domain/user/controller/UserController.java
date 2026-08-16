@@ -1,13 +1,13 @@
-package org.webmarketapp.webmarket.domain.controller;
+package org.webmarketapp.webmarket.domain.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.webmarketapp.webmarket.domain.dto.UserRequestDTO;
-import org.webmarketapp.webmarket.domain.dto.UserResponseDTO;
-import org.webmarketapp.webmarket.domain.service.UserService;
+import org.webmarketapp.webmarket.domain.user.dto.UserRequestDTO;
+import org.webmarketapp.webmarket.domain.user.dto.UserResponseDTO;
+import org.webmarketapp.webmarket.domain.user.service.UserService;
 
 import java.util.List;
 

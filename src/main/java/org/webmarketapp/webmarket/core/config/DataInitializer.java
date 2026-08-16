@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.webmarketapp.webmarket.domain.repository.UserRepository;
-import org.webmarketapp.webmarket.domain.model.User;
+import org.webmarketapp.webmarket.domain.user.repository.UserRepository;
+import org.webmarketapp.webmarket.domain.user.model.User;
 import java.time.LocalDate;
 @Configuration
 @RequiredArgsConstructor

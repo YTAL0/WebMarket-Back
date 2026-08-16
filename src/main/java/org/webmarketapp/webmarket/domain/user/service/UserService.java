@@ -1,13 +1,13 @@
-package org.webmarketapp.webmarket.domain.service;
+package org.webmarketapp.webmarket.domain.user.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.webmarketapp.webmarket.core.exception.ResourceNotFoundException;
-import org.webmarketapp.webmarket.domain.repository.UserRepository;
-import org.webmarketapp.webmarket.domain.dto.UserRequestDTO;
-import org.webmarketapp.webmarket.domain.dto.UserResponseDTO;
-import org.webmarketapp.webmarket.domain.model.User;
+import org.webmarketapp.webmarket.domain.user.repository.UserRepository;
+import org.webmarketapp.webmarket.domain.user.dto.UserRequestDTO;
+import org.webmarketapp.webmarket.domain.user.dto.UserResponseDTO;
+import org.webmarketapp.webmarket.domain.user.model.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

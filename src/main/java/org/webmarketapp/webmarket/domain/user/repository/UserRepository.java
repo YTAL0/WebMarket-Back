@@ -1,6 +1,6 @@
-package org.webmarketapp.webmarket.domain.repository;
+package org.webmarketapp.webmarket.domain.user.repository;
 
-import org.webmarketapp.webmarket.domain.model.User;
+import org.webmarketapp.webmarket.domain.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
