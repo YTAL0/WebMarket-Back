@@ -43,4 +43,18 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+    @PostMapping("/{userId}/companies/{companyId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserResponseDTO> addCompanyToUser(
+            @PathVariable Long userId,
+            @PathVariable Long companyId) {
+        return ResponseEntity.ok(userService.addCompanyToUser(userId, companyId));
+    }
+    @DeleteMapping("/{userId}/companies/{companyId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserResponseDTO> removeCompanyFromUser(
+            @PathVariable Long userId,
+            @PathVariable Long companyId) {
+        return ResponseEntity.ok(userService.removeCompanyFromUser(userId, companyId));
+    }
 }

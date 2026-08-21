@@ -12,6 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.webmarketapp.webmarket.domain.company.model.Company;
+import org.webmarketapp.webmarket.domain.company.repository.CompanyRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +22,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CompanyRepository companyRepository;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
         User user = new User();
@@ -76,5 +80,34 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User with ID " + id + " not found."));
         userRepository.delete(user);
+    }
+
+    @Transactional
+    public UserResponseDTO addCompanyToUser(Long userId, Long companyId) {
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        Company company = companyRepository.findById(companyId)
+                .orElseThrow(() -> new ResourceNotFoundException("Company not found"));
+
+        user.getCompanies().add(company);
+
+        userRepository.save(user);
+
+        return convertToResponseDTO(user);
+    }
+    @Transactional
+    public UserResponseDTO removeCompanyFromUser(Long userId, Long companyId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+        Company company = companyRepository.findById(companyId)
+                .orElseThrow(() -> new ResourceNotFoundException("Company not found"));
+
+        user.getCompanies().remove(company);
+
+        userRepository.save(user);
+        return convertToResponseDTO(user);
     }
 }
