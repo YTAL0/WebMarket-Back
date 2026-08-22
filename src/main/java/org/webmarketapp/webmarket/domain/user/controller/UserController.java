@@ -11,7 +11,6 @@ import org.webmarketapp.webmarket.domain.user.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
